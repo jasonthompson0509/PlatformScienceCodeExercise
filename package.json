@@ -1,0 +1,19 @@
+{
+  "name": "platformscience",
+  "version": "1.0.0",
+  "description": "Platform Science Code Exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonthompson0509/PlatformScienceCodeExercise.git"
+  },
+  "author": "Jason Thompson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonthompson0509/PlatformScienceCodeExercise/issues"
+  },
+  "homepage": "https://github.com/jasonthompson0509/PlatformScienceCodeExercise#readme"
+}
