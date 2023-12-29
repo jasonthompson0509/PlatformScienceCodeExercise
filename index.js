@@ -30,8 +30,18 @@ function calculateSuitabilityScore(destination, driver) {
 
   //If the length of the shipment's destination street name shares any common factors (besides 1) with the length of the driver’s name, the SS is increased by 50% above the base SS.
   //For example, if provided a driver file with Daniel Davidson on one line and an address file with 44 Fake Dr., San Diego, CA 92122 on a line, that pairing’s suitability score would be 9 .
+  function getCommonFactors(a, b) {
+    const smaller = a > b ? b : a;
+    const factors = [];
+    for (let i = 2; i <= smaller; i++) {
+      if (a % i === 0 && b % i === 0) {
+        factors.push(i);
+      }
+    }
+    return factors;
+  }
 
-  const commonFactors = [];
+  const commonFactors = getCommonFactors(destination.length, driver.length);
   const finalScore =
     commonFactors.length > 0
       ? baseSuitabilityScore * 1.5
