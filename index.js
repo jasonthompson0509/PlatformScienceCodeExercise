@@ -47,13 +47,15 @@ async function main() {
   console.log(shipmentDestinations);
   console.log(driverNames);
 
-  const score = calculateSuitabilityScore(
-    shipmentDestinations[0],
-    driverNames[0]
-  );
+  shipmentDestinations.forEach((destination) => {
+    driverNames.forEach((driver) => {
+      const score = calculateSuitabilityScore(destination, driver);
 
-  // Output
-  console.log("Total Suitability Score:", score);
+      console.log(
+        `Dest: ${destination} ~ Driver: ${driver} ~ Total Suitability Score: ${score}`
+      );
+    });
+  });
 }
 
 main();
