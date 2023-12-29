@@ -1,6 +1,17 @@
-// Sample data (put this in files to read for next steps)
-const shipmentDestinations = ["44 Fake Dr., San Diego, CA 92122"];
-const driverNames = ["Daniel Davidson"];
+const fs = require("fs").promises;
+
+async function parseFile(filePath) {
+  try {
+    const data = await fs.readFile(filePath, "utf8");
+    const lines = data
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line !== "");
+    return lines;
+  } catch (err) {
+    throw new Error("Error reading file: ${filePath}");
+  }
+}
 
 function calculateSuitabilityScore(destination, driver) {
   let baseSuitabilityScore = 0;
@@ -29,10 +40,20 @@ function calculateSuitabilityScore(destination, driver) {
   return finalScore;
 }
 
-const score = calculateSuitabilityScore(
-  shipmentDestinations[0],
-  driverNames[0]
-);
+async function main() {
+  const shipmentDestinations = await parseFile("addresses.txt");
+  const driverNames = await parseFile("drivers.txt");
 
-// Output
-console.log("Total Suitability Score:", score);
+  console.log(shipmentDestinations);
+  console.log(driverNames);
+
+  const score = calculateSuitabilityScore(
+    shipmentDestinations[0],
+    driverNames[0]
+  );
+
+  // Output
+  console.log("Total Suitability Score:", score);
+}
+
+main();
