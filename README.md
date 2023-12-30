@@ -1,5 +1,12 @@
 # SDE Code Exercise
 
+## Development
+
+    git clone git@github.com:jasonthompson0509/PlatformScienceCodeExercise.git
+    cd PlatformScienceCodeExercise
+    npm i
+    npm test
+
 ## Platform Science Code Exercise
 
 Our sales team has just struck a deal with Acme Inc to become the exclusive provider for routing their product shipments via 3rd party
