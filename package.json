@@ -4,7 +4,7 @@
   "description": "Platform Science Code Exercise",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jasonthompson0509/PlatformScienceCodeExercise/issues"
   },
-  "homepage": "https://github.com/jasonthompson0509/PlatformScienceCodeExercise#readme"
+  "homepage": "https://github.com/jasonthompson0509/PlatformScienceCodeExercise#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }

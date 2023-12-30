@@ -56,6 +56,6 @@ We will especially consider:
 Questions:
 How does one define "shipment's destination street name"?
 
-- 123 Fake St, Madison WI 52403 = Fake
-- 123 Faked Out Lane, Madison WI 52403 = Faked Out
-- 519 North Fourth Street, Winterset IA 50273 = N 4th
+- 123 Fake St, Madison WI 52403 = Fake or Fake St
+- 123 Faked Out Lane, Madison WI 52403 = Faked Out?
+- 519 North Fourth Street, Winterset IA 50273 = N 4th or North Fourth?
