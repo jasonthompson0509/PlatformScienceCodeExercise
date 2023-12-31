@@ -6,6 +6,7 @@
     cd PlatformScienceCodeExercise
     npm i
     npm test
+    node index.js addressess.txt drivers.txt
 
 ## Platform Science Code Exercise
 
