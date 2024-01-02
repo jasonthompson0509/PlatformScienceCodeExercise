@@ -24,40 +24,44 @@ async function main() {
     driversFilePath ? driversFilePath : "drivers.txt"
   );
 
-  console.log(shipmentDestinations);
-  console.log(driverNames);
+  //console.log(shipmentDestinations);
+  //console.log(driverNames);
 
   const matches = {};
-  let totalScore = 0;
 
   shipmentDestinations.forEach((destination) => {
     let maxScore = 0;
     let bestDriver = "";
 
     driverNames.forEach((driver) => {
-      const score = calculateSuitabilityScore(destination, driver);
+      if (!matches[driver]) {
+        const score = calculateSuitabilityScore(destination, driver);
 
-      if (!matches[driver] && score > maxScore) {
-        maxScore = score;
-        bestDriver = driver;
+        if (score > maxScore) {
+          maxScore = score;
+          bestDriver = driver;
+        }
+
+        //        console.log(
+        //         `Dest: ${destination} ~ Driver: ${driver} ~ Score: ${score} ~ Max Score: ${maxScore} ~ Best Driver: ${bestDriver}`
+        //      );
       }
-
-      console.log(
-        `Dest: ${destination} ~ Driver: ${driver} ~ Total Suitability Score: ${score}`
-      );
     });
 
     if (bestDriver) {
       matches[bestDriver] = destination;
-      totalScore += maxScore;
     }
   });
 
-  console.log("Total Suitability Score:", totalScore);
-  console.log("Driver -> Destination Match:");
+  let totalScore = 0;
+
   for (const driver in matches) {
+    const score = calculateSuitabilityScore(matches[driver], driver);
+    totalScore += score;
     console.log(`${matches[driver]} -> ${driver}`);
   }
+
+  console.log("Total Suitability Score:", totalScore);
 }
 
 main();
